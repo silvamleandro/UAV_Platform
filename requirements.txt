@@ -1,0 +1,4 @@
+djitellopy==2.4.0
+numpy==1.22.4
+opencv-python==4.5.5.64
+paho-mqtt==1.6.1

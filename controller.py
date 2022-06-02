@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-a', '--action', type=str, help='Action performed on the UAV')
 parser.add_argument('-v', '--value', type=int, help='Value associated with the action')
 parser.add_argument('-f', '--flight_plan', type=pathlib.Path, help='Specify a file.txt with the flight plan')
-parser.add_argument('-j', '--only_publish', action='store_true', help='Only publish commands, not subscribe')
+parser.add_argument('-o', '--only_publish', action='store_true', help='Only publish commands, not subscribe')
 args = parser.parse_args()
 
 
