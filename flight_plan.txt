@@ -1,0 +1,5 @@
+takeoff
+up 15
+left 30
+rotate_counterclockwise 90
+land
