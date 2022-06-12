@@ -37,7 +37,11 @@ pip install -r requirements.txt
 
 __Note 1:__ It is possible to create a virtual environment too. However, don't forget to activate it when installing the libraries and running the code.
 
-__Note 2:__ The ```djitellopy``` library is only used in the _uav.py_ script, so no need to install on the controller.
+__Note 2:__ The ```djitellopy``` library is only used in the _uav.py_ script, so no need to install on the controller. And for the library to work correctly, it is necessary to install OpenCV on the OS through the command:
+
+```
+sudo apt-get install python3-opencv
+```
 
 In addition, it is possible to configure your MQTT broker address and SSL/TLS certificates in the codes. As the platform supports DJI Tello, it is necessary to configure your network on the Raspberry Pi or any other device that will connect with the UAV. On Linux systems, it can be done by editing the file ```/etc/wpa_supplicant/wpa_supplicant.conf``` and creating an entry:
 
@@ -64,6 +68,8 @@ Commands are sent by the controller through the command ```python3 controller.ua
 - **rotate_counterclockwise _value_:** rotate _value_ degrees counterclockwise.
 
 __Note 3:__ The _-o_ or _--only_publish_ parameter is used only publish commands, not subscribe.
+
+__Note 4:__ For the DJI Tello to work with the application, its firmware needs to be updated to the latest version.
 
 -----
 
