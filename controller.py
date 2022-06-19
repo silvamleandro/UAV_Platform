@@ -135,7 +135,7 @@ if __name__ == '__main__':
         with args.flight_plan.open('r') as file: # File for reading
             for row in file: # Going through the .txt file
                 try:
-                    client.publish(commands, json_update_commands(row.split()[0], row.split()[1]))
+                    client.publish(commands, json_update_commands(row.split()[0], int(row.split()[1])))
                 except IndexError: # Value not informed
                     client.publish(commands, json_update_commands(row.split()[0], 0))
     elif(args.action != None): # An action was informed by parameter
