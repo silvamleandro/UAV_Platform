@@ -106,6 +106,7 @@ def on_disconnect(client, userdata, rc):
 
 # Function to perform the UAV action
 def execute(dictionary):
+    # The ranges for validating the value were defined based on the djitellopy lib
 
     if dictionary['action'] == 'takeoff':
         log('Taking off...')
@@ -119,43 +120,51 @@ def execute(dictionary):
 
     elif dictionary['action'] == 'up':
         log('Ascending to ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_up(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_up(dictionary['value'])
 
     elif dictionary['action'] == 'down':
         log('Descending to ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_up(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_up(dictionary['value'])
 
     elif dictionary['action'] == 'forward':
         log('Flying forward for ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_forward(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_forward(dictionary['value'])
 
     elif dictionary['action'] == 'backward':
         log('Flying backward for ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_back(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_back(dictionary['value']) 
 
     elif dictionary['action'] == 'left':
         log('Flying left for ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_left(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_left(dictionary['value']) 
 
     elif dictionary['action'] == 'right':
         log('Flying right for ' + str(dictionary['value']) + ' cm')
-        # Send command to Tello
-        tello.move_right(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (20 <= dictionary['value'] <= 500):
+            tello.move_right(dictionary['value'])
 
     elif dictionary['action'] == 'rotate_clockwise':
         log('Rotating ' + str(dictionary['value']) + ' degrees clockwise')
-        # Send command to Tello
-        tello.rotate_clockwise(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (1 <= dictionary['value'] <= 360):
+            tello.rotate_clockwise(dictionary['value'])
 
     elif dictionary['action'] == 'rotate_counterclockwise':
         log('Rotating ' + str(dictionary['value']) + ' degrees counterclockwise')
-        # Send command to Tello
-        tello.rotate_counter_clockwise(dictionary['value']) if args.tello else None
+        # Send command to Tello (with value validation)
+        if args.tello and (1 <= dictionary['value'] <= 360):
+            tello.rotate_counter_clockwise(dictionary['value'])
 
     else:
         log('No action is valid')
