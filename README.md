@@ -37,10 +37,11 @@ pip install -r requirements.txt
 
 __Note 1:__ It is possible to create a virtual environment too. However, don't forget to activate it when installing the libraries and running the code.
 
-__Note 2:__ The ```djitellopy``` library is only used in the _uav.py_ script, so no need to install on the controller. And for the library to work correctly, it is necessary to install OpenCV on the OS through the command:
+__Note 2:__ The ```djitellopy``` library is only used in the _uav.py_ script, so no need to install on the controller. And for the library to work correctly, it is necessary to install OpenCV and libatlas on the OS through the commands:
 
 ```
 sudo apt-get install python3-opencv
+sudo apt-get install libatlas-base-dev
 ```
 
 In addition, it is possible to configure your MQTT broker address and SSL/TLS certificates in the codes. As the platform supports DJI Tello, it is necessary to configure your network on the Raspberry Pi or any other device that will connect with the UAV. On Linux systems, it can be done by editing the file ```/etc/wpa_supplicant/wpa_supplicant.conf``` and creating an entry:
@@ -52,7 +53,14 @@ network={
 }
 ````
 
-To initialize receiving commands and publishing UAV state, run the command ```python3 uav.py```. The _-t_ or _--tello_ parameter is to inform that DJI Tello is available to receive commands. Then, check if Tello is connected to the network before informing this parameter. Also, the drone state is published every 5 seconds, being sent pitch, yaw, roll, speed on three axes (x, y, z), average temperature, battery level, and height.
+To initialize receiving commands and publishing UAV state, run the command ```python3 uav.py```. The _-t_ or _--tello_ parameter is to inform that DJI Tello is available to receive commands. Then, check if Tello is connected to the network before informing this parameter. Also, the drone state is published every two seconds, being sent pitch, yaw, roll, speed on three axes (x, y, z), average temperature, battery level, and height.
+
+If it gets the error "Python [Errno 98] Address already in use" when rerunning with DJI Tello, it will need to terminate the process:
+
+```
+ps -fA | grep python
+kill -9 process_id
+```
 
 Commands are sent by the controller through the command ```python3 controller.uav```, addition to receiving the UAV state. There are two ways to enter commands: single command and flight plan. The single command is informed in the _-a_ or _--action_ parameter, and its respective value in the _-v_ or _--value_ parameter. For example, the command ```python3 controller.py -a left -v 10``` makes the UAV fly left for 10 cm. The second way is to use the .txt file with the flight plan defined, as defined in the example _flight_plan.txt_. To enter a text file, the _-f_ or _--flight_plan_ parameter is required. Below are the possible actions implemented in this project:
 
@@ -69,7 +77,7 @@ Commands are sent by the controller through the command ```python3 controller.ua
 
 __Note 3:__ The _-o_ or _--only_publish_ parameter is used only publish commands, not subscribe.
 
-__Note 4:__ For the DJI Tello to work with the application, its firmware needs to be updated to the latest version.
+__Note 4:__ For the DJI Tello to work with the application, its firmware needs to be updated to the latest version. In addition, some bugs may occur, so it is recommended to connect the drone to the smartphone and fly, and then connect to the platform.
 
 -----
 
@@ -77,7 +85,6 @@ __Note 4:__ For the DJI Tello to work with the application, its firmware needs t
 
 The next steps for this project are:
 
-- Finalize the integration with the DJI Tello (real UAV);
 - Fix issue with SSL/TLS certificate present in recent versions of Python;
 - Build the model to detect wireless network attacks.
 
