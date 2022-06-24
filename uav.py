@@ -203,7 +203,7 @@ def main():
             else: # Simulated data
                 client.publish(state, json_update_state('000 000 000', '000 000 000', '000', '000', '000'))
             
-            sleep(5) # Wait 5 seconds
+            sleep(2) # Wait 2 seconds
     except MQTTClientDisconnected: # MQTT client disconnected
         log("Client disconnected. Reconnecting...")
     except BaseException as msg: # Base expection

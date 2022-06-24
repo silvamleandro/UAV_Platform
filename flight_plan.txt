@@ -1,5 +1,5 @@
 takeoff
 up 20
-left 20
+right 20
 rotate_counterclockwise 45
 land
