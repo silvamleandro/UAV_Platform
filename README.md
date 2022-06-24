@@ -13,7 +13,7 @@ The technologies and tools in the sequence have been used for the development of
 
 - **DJI Tello** Consists of an extremely light UAV with only 80 g counting the propellers and battery, low cost and portable, in addition to being designed for beginners in the area. The UAV can fly up to 13 minutes at a speed of 28.8 km/h within a radius of up to 100 meters away;
 - **Python:** Simple, versatile programming language and has a huge amount of libraries, such as paho-mqtt and djitellopy;
-- **Raspberry Pi Zero W:** Single-board computer with low cost and accessible to students in general. The Zero W model is an evolution of the Zero model, with 802.11n wireless connection and bluetooth 4.0;
+- **Raspberry Pi Model B:** Single-board computer with low cost and accessible to students in general. This model contains an Ethernet port, and allows the connection of a Wi-Fi dongle to connect to the real drone;
 - **Eclipse Mosquitto:** Broker server that is easy to install and configure. Also, it's open source and has an image on Docker Hub;
 - **Eclipse Paho:** Library to implement the MQTT client, that is, to send and receive messages. The Mosquitto Python Client project was donated to Eclipse Paho in June 2013, and allows integration with several programming languages as well, such as C or Java;
 - **OpenSSL:** Allows the generation of X.509 certificates, in the X.509 Public Key Infrastructure (PKI) standard and encrypted with SHA-256.
