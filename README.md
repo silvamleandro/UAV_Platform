@@ -1,6 +1,6 @@
 # Platform for UAV Controlling
 
-This project aims to develop an MQTT platform for UAV control applying the detection of attacks on the wireless network. Thus, two programs are built: one for the controller and the other for the Raspberry Pi, which is responsible for communicating with the UAV. The connection between the Raspberry Pi and the UAV is through the wireless network, so a machine learning model is generated in order to detect attacks, such as Wi-Fi deauthentication and cracking.
+This project aims to develop an MQTT platform for UAV control applying the detection of DoS attacks on the wireless network. Thus, two programs are built: one for the controller and the other for the Raspberry Pi, which is responsible for communicating with the UAV. The connection between the Raspberry Pi and the UAV is through the Wi-Fi network, so a machine learning model is generated in order to detect attacks, such as deauthentication.
 
 The group for this project is composed of the following members:
 
@@ -9,7 +9,7 @@ The group for this project is composed of the following members:
 - Matheus dos Santos Luccas: matheus.luccas@usp.br.
 
 ## Technologies and Tools Used
-The technologies and tools in the sequence have been used for the development of this project so far. However, other tools can be added in future modifications, for example, the addition of some Graphical User Interface (GUI).
+The technologies and tools in the sequence have been used for the development of this project:
 
 - **DJI Tello** Consists of an extremely light UAV with only 80 g counting the propellers and battery, low cost and portable, in addition to being designed for beginners in the area. The UAV can fly up to 13 minutes at a speed of 28.8 km/h within a radius of up to 100 meters away;
 - **Python:** Simple, versatile programming language and has a huge amount of libraries, such as paho-mqtt and djitellopy;
@@ -79,13 +79,4 @@ __Note 3:__ The _-o_ or _--only_publish_ parameter is used only publish commands
 
 __Note 4:__ For the DJI Tello to work with the application, its firmware needs to be updated to the latest version. In addition, some bugs may occur, so it is recommended to connect the drone to the smartphone and fly, and then connect to the platform.
 
------
-
-## Next Steps
-
-The next steps for this project are:
-
-- Fix issue with SSL/TLS certificate present in recent versions of Python;
-- Build the model to detect wireless network attacks.
-
-__Note:__ The dataset to train the model against wireless attacks was provided from the _[ECU-IoFT](https://github.com/iMohi/ECU-IoFT)_ repository.
+__Note 5:__ The dataset to train the model against wireless attacks was provided from the _[Aegean Wi-Fi Intrusion Dataset 2 (AWID2)](https://icsdweb.aegean.gr/awid/awid2)_.
